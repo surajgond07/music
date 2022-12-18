@@ -96,7 +96,6 @@ loadSong(songs[songIndex]);
 function updateProgressBar(e) {
     if (isPlaying) {
         const { duration, currentTime } = e.srcElement;
-        console.log(duration, currentTime);
         // Update Progress Bar
         const progressPercent = (currentTime / duration) * 100;
         progress.style.width = `${progressPercent}%`;
@@ -104,6 +103,26 @@ function updateProgressBar(e) {
         // Using Math method
         const durationMinutes = Math.floor(duration / 60);
         console.log("minutes", durationMinutes);
+        let durationSeconds = Math.floor(duration % 60);
+        if (durationSeconds < 10) {
+            durationSeconds = `0${durationSeconds}`;
+        }
+        console.log('second', durationSeconds);
+
+        // Delay switching the duration element to avoid NAN
+        if (durationSeconds) {
+            durationEl.textContent = `${durationMinutes} : ${durationSeconds}`;
+        }
+        // Calculate Display for current
+        // Using Math method
+        const currentMinutes = Math.floor(currentTime / 60);
+        console.log("minutes", currentMinutes);
+        let currentSeconds = Math.floor(currentTime % 60);
+        if (currentSeconds < 10) {
+            currentSeconds = `0${currentSeconds}`;
+        }
+        console.log('second', currentSeconds);
+        currentTimeEl.textContent = `${currentMinutes} : ${currentSeconds}`;
     }
 
 }
