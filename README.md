@@ -1,5 +1,5 @@
 # Responsive Music Player
-## [Give me your feedback](https://surajgond.com)
+## [Give me your feedback
 ### Responsive Music Player
 
 - Responsive Music Player Using HTML CSS & JavaScript
